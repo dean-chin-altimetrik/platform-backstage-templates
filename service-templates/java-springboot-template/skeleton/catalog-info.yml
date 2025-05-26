@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ values.project_slug }}
+  description: {{ values.description }}
+  tags:
+    - springboot
+    - java
+    - maven
+  annotations:
+    github.com/project-slug: {{ values.github_organization }}/{{ values.project_slug }}
+    backstage.io/techdocs-ref: dir:.
+    devbox.io/enabled: "true"
+spec:
+  type: service
+  lifecycle: production
+  owner: {{ values.github_organization }}

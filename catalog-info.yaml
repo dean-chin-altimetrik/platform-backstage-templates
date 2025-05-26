@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: platform-backstage-templates
+  description: All service, infrastructure, and metadata templates for Backstage scaffolder
+spec:
+  targets:
+    - ./service-templates/java-springboot-template/template.yaml
+    # Add more templates here as you create them:
+    # - ./service-templates/python-fastapi-template/template.yaml
+    # - ./infra-templates/eks-cluster-template/template.yaml
+    # - ./metadata-templates/system-template/template.yaml
