@@ -51,7 +51,6 @@ spec:
       action: fetch:template
       input:
         url: github:dean-chin-altimetrik/platform-backstage-templates/blob/main/service-templates/java-springboot-template
-        targetPath: ./output
         values:
           friendly_name: "{{ parameters.friendly_name }}"
           project_slug: "{{ parameters.friendly_name | lower | replace(' ', '-') }}"
