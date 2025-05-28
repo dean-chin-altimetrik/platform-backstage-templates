@@ -67,5 +67,5 @@ spec:
       name: Register in Backstage catalog
       action: catalog:register
       input:
-        repoContentsUrl: "{{ output.repoContentsUrl }}"
+        # repoContentsUrl: "{{ output.repoContentsUrl }}"
         catalogInfoPath: "/catalog-info.yaml"
