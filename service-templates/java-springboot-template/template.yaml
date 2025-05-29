@@ -48,17 +48,17 @@ spec:
       name: Fetch base template
       action: fetch:template
       input:
-        url: https://github.com/dean-chin-altimetrik/platform-backstage-templates/blob/main/service-templates/java-springboot-template
+        url: https://github.com/dean-chin-altimetrik/platform-backstage-templates/blob/main/service-templates/java-springboot-template/skeleton
         values:
-          friendly_name: "{{ parameters.friendly_name }}"
-          project_slug: "{{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}"
-          description: "{{ parameters.description }}"
+          friendly_name: "${{ parameters.friendly_name }}"
+          project_slug: "${{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}"
+          description: "${{ parameters.description }}"
           group_id: "com.altimetrik"
-          java_version: "{{ parameters.java_version }}"
-          maven_version: "{{ parameters.maven_version }}"
-          spring_boot_version: "{{ parameters.spring_boot_version }}"
-          java_package_dir: "{{ 'com.altimetrik' | replace('.', '/') }}"
-          java_package_name: "{{ 'com.altimetrik' | replace('-', '_') }}"
+          java_version: "${{ parameters.java_version }}"
+          maven_version: "${{ parameters.maven_version }}"
+          spring_boot_version: "${{ parameters.spring_boot_version }}"
+          java_package_dir: "${{ 'com.altimetrik' | replace('.', '/') }}"
+          java_package_name: "${{ 'com.altimetrik' | replace('-', '_') }}"
 
     - id: publish
       name: Publishing to a GitHub repository
@@ -66,11 +66,11 @@ spec:
       input:
         repoUrl: github.com?repo=${{parameters.project_slug}}&owner=${{parameters.github_organization}}
         defaultBranch: main
-        description: "{{ parameters.description }}"
+        description: "${{ parameters.description }}"
         repoVisibility: public
 
     - id: register
       name: Register in Backstage catalog
       action: catalog:register
       input:
-        catalogInfoUrl: "https://raw.githubusercontent.com/{{ parameters.github_organization }}/{{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}/main/catalog-info.yaml"
+        catalogInfoUrl: "https://raw.githubusercontent.com/${{ parameters.github_organization }}/${{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}/main/catalog-info.yaml"
