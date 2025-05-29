@@ -50,7 +50,7 @@ spec:
       name: Fetch base template
       action: fetch:template
       input:
-        url: https://dean-chin-altimetrik/platform-backstage-templates/blob/main/service-templates/java-springboot-template
+        url: https://github.com/dean-chin-altimetrik/platform-backstage-templates/blob/main/service-templates/java-springboot-template
         values:
           friendly_name: "{{ parameters.friendly_name }}"
           project_slug: "{{ parameters.friendly_name | lower | replace(' ', '-') }}"
