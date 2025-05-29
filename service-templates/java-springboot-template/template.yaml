@@ -64,7 +64,7 @@ spec:
       name: Publishing to a GitHub repository
       action: publish:github
       input:
-        repoUrl: "github.com?repo={{ parameters.project_slug }}&owner={{ parameters.github_organization }}"
+        repoUrl: github.com?repo=${{parameters.project_slug}}&owner=${{parameters.github_organization}}
         defaultBranch: main
         description: "{{ parameters.description }}"
         repoVisibility: public
