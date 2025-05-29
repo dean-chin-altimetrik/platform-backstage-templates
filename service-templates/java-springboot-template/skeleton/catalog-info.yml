@@ -8,7 +8,7 @@ metadata:
     - java
     - maven
   annotations:
-    github.com/project-slug: ${{ values.github_organization }}/{{ values.project_slug }}
+    github.com/project-slug: ${{ values.github_organization }}/${{ values.project_slug }}
     backstage.io/techdocs-ref: dir:.
     devbox.io/enabled: "true"
 spec:

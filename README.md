@@ -62,5 +62,5 @@ Or use the __Import__ feature in the Backstage UI.
 We welcome contributions from platform and application teams!
 
 - Folow naming and directory conventions
-- Use Nunjucks templating syntax ({{ values.xyz }}) in skeleton files
+- Use Nunjucks templating syntax (${{ values.xyz }}) in skeleton files
 - Keep templates modular and organization-compliant

@@ -3,23 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>{{ values.group_id }}</groupId>
-  <artifactId>{{ values.project_slug }}</artifactId>
-  <version>{{ values.artifact_version }}-SNAPSHOT</version>
+  <groupId>${{ values.group_id }}</groupId>
+  <artifactId>${{ values.project_slug }}</artifactId>
+  <version>${{ values.artifact_version }}-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>{{ values.friendly_name }}</name>
-  <description>{{ values.description }}</description>
+  <name>${{ values.friendly_name }}</name>
+  <description>${{ values.description }}</description>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>{{ values.spring_boot_version }}</version>
+    <version>${{ values.spring_boot_version }}</version>
     <relativePath/>
   </parent>
 
   <properties>
-    <java.version>{{ values.java_version }}</java.version>
+    <java.version>${{ values.java_version }}</java.version>
   </properties>
 
   <dependencies>

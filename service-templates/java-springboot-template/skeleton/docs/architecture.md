@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes the architecture of the {{ values.friendly_name }}.
+This document describes the architecture of the ${{ values.friendly_name }}.
 
 ## Layers
 

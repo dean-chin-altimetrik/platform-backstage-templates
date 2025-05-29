@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "{{ values.project_slug }}"
+name = "${{ values.project_slug }}"
 version = "0.1.0"
 package-mode = false
 

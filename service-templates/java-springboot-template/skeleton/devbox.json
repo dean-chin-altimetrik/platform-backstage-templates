@@ -1,14 +1,14 @@
 {
   "packages": [
-    "openjdk@{{values.java_version}}",
-    "maven@{{values.maven_version}}",
+    "openjdk@${{values.java_version}}",
+    "maven@${{values.maven_version}}",
     "python3",
     "poetry"
   ],
   "shell": {
     "init_hook": [
         "poetry install",
-        "echo 'Devbox ready for${{values.project_slug}}!'"
+        "echo 'Devbox ready for ${{values.project_slug}}!'"
     ],
     "scripts": {
       "start": "mvn spring-boot:run",
