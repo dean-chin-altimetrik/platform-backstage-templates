@@ -1,12 +1,13 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: java-springboot-templae
+  name: java-springboot-template
   title: Java Spring Boot Service
   description: Scaffold a new Java Spring Boot service with Devbox, TechDocs, CI, and Backstage integration.
 spec:
   owner: platform-team
   type: service
+
   parameters:
     - title: Service Information
       required:
@@ -19,20 +20,17 @@ spec:
           default: My Spring Boot Service
         project_slug:
           type: string
-          title: Project Slug        
+          title: Project Slug
+          description: Slugified name for repository (optional, defaults from friendly_name)
         description:
           type: string
           title: Description
           default: A Java service scaffolded with Backstage
         java_version:
           type: string
-          title: Java version
-          enum:
-            - "17"
-            - "21"
-          enumNames:
-            - Java 17
-            - Java 21
+          title: Java Version
+          enum: ["17", "21"]
+          enumNames: [Java 17, Java 21]
           default: "17"
         maven_version:
           type: string
@@ -50,22 +48,29 @@ spec:
       name: Fetch base template
       action: fetch:template
       input:
-        url: https://github.com/dean-chin-altimetrik/platform-backstage-templates/blob/main/service-templates/java-springboot-template
+        url: github:dean-chin-altimetrik/platform-backstage-templates/main/service-templates/java-springboot-template
         values:
           friendly_name: "{{ parameters.friendly_name }}"
-          project_slug: "{{ parameters.friendly_name | lower | replace(' ', '-') }}"
+          project_slug: "{{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}"
           description: "{{ parameters.description }}"
           group_id: "com.altimetrik"
           java_version: "{{ parameters.java_version }}"
           maven_version: "{{ parameters.maven_version }}"
           spring_boot_version: "{{ parameters.spring_boot_version }}"
-          java_package_dir: "{{ parameters.group_id | replace('.', '/') }}"
-          java_package_name: "{{ parameters.group_id | replace('-', '_') }}"
+          java_package_dir: "{{ 'com.altimetrik' | replace('.', '/') }}"
+          java_package_name: "{{ 'com.altimetrik' | replace('-', '_') }}"
+
+    - id: publish
+      name: Publishing to a GitHub repository
+      action: publish:github
+      input:
+        repoUrl: "github.com?repo={{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}&owner={{ parameters.github_organization }}"
+        defaultBranch: main
+        description: "{{ parameters.description }}"
+        repoVisibility: public
 
     - id: register
       name: Register in Backstage catalog
       action: catalog:register
       input:
-        catalogInfoUrl: "https://github.com/{{ parameters.github_organization }}/{{ parameters.project_slug }}/blob/main/catalog.info"
-        # repoContentsUrl: "{{ output.repoContentsUrl }}"
-        # catalogInfoPath: "/catalog-info.yaml"
+        catalogInfoUrl: "https://raw.githubusercontent.com/{{ parameters.github_organization }}/{{ parameters.project_slug | default(parameters.friendly_name | lower | replace(' ', '-')) }}/main/catalog-info.yaml"
