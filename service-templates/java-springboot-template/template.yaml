@@ -59,6 +59,7 @@ spec:
           spring_boot_version: "${{ parameters.spring_boot_version }}"
           java_package_dir: "${{ 'com.altimetrik' | replace('.', '/') }}"
           java_package_name: "${{ 'com.altimetrik' | replace('-', '_') }}"
+          github_organization: "${{ parameters.github_organization }}"
 
     - id: publish
       name: Publishing to a GitHub repository
