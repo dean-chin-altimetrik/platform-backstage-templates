@@ -75,3 +75,9 @@ spec:
       action: catalog:register
       input:
         catalogInfoUrl: "https://raw.githubusercontent.com/${{ parameters.github_organization }}/${{ parameters.project_slug }}/refs/heads/main/catalog-info.yaml"
+  
+  output:
+    links:
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
