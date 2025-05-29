@@ -8,8 +8,8 @@ metadata:
     - java
     - maven
   annotations:
-    github.com/project-slug: ${{ values.github_organization }}/${{ values.project_slug }}
-    backstage.io/source-location: url:https://github.com/${{ values.github_organization }}/${{ values.project_slug }}
+    # github.com/project-slug: ${{ values.github_organization }}/${{ values.project_slug }}
+    # backstage.io/source-location: url:https://github.com/${{ values.github_organization }}/${{ values.project_slug }}
     backstage.io/techdocs-ref: "dir: ."
     devbox.io/enabled: "true"
 spec:
