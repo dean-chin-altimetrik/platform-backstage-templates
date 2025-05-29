@@ -73,4 +73,4 @@ spec:
       name: Register in Backstage catalog
       action: catalog:register
       input:
-        catalogInfoUrl: "https://raw.githubusercontent.com/${{ parameters.github_organization }}/${{ parameters.project_slug }}/refs/head/main/catalog-info.yaml"
+        catalogInfoUrl: "https://raw.githubusercontent.com/${{ parameters.github_organization }}/${{ parameters.project_slug }}/refs/heads/main/catalog-info.yaml"
