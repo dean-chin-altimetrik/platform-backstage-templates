@@ -1,11 +1,11 @@
-# {{ values.friendly_name }}
+# ${{ values.friendly_name }}
 
-{{ values.description }}
+${{ values.description }}
 
 ## Requirements
 
-- Java {{ values.java_version }}
-- Maven {{ values.maven_version }}
+- Java ${{ values.java_version }}
+- Maven ${{ values.maven_version }}
 - Devbox
 
 ## Getting Started
