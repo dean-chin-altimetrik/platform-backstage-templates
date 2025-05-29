@@ -8,7 +8,7 @@
   "shell": {
     "init_hook": [
         "poetry install",
-        "echo 'Devbox ready for {{values.project_slug}}!'"
+        "echo 'Devbox ready for${{values.project_slug}}!'"
     ],
     "scripts": {
       "start": "mvn spring-boot:run",
