@@ -10,7 +10,7 @@ metadata:
   annotations:
     github.com/project-slug: ${{ values.github_organization }}/${{ values.project_slug }}
     backstage.io/source-location: url:https://github.com/${{ values.github_organization }}/${{ values.project_slug }}
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref: url:https://github.com/${{ values.github_organization }}/${{ values.project_slug }}/tree/main
     devbox.io/enabled: "true"
 spec:
   type: service
